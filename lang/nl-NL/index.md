@@ -3,7 +3,7 @@ title: Conventionele Commits 1.0.0-beta.2
 language: nl-NL
 ---
 
-# Conventional Commits 1.0.0-beta.2
+# Conventionele Commits 1.0.0-beta.2
 
 ## Samenvatting
 
@@ -55,24 +55,24 @@ informatie toe te voegen. De scope staat tussen haakjes, bijvoorbeeld:
 
 ## Voorbeelden
 
-### Commit message with description and breaking change in body
+### Commit bericht met omschrijving en breaking change in de body
 ```
 feat: allow provided config object to extend other configs
 
 BREAKING CHANGE: `extends` key in config file is now used for extending other config files
 ```
 
-### Commit message with no body
+### Commit bericht zonder body
 ```
 docs: correct spelling of CHANGELOG
 ```
 
-### Commit message with scope
+### Commit bericht met scope
 ```
 feat(lang): added polish language
 ```
 
-### Commit message for a fix using an (optional) issue number.
+### Commit bericht voor een herstel met gebruik van een (optioneel) issue-nummer.
 ```
 fix: minor typos in code
 
@@ -81,40 +81,51 @@ see the issue for details on the typos fixed
 fixes issue #12
 ```
 
-## Introduction
+## Introductie
 
-In software development, it's been my experience that bugs are most often introduced
-at the boundaries between applications. Unit testing works great for testing the interactions
-that an open-source maintainer knows about, but do a poor job of capturing all the
-interesting, often unexpected, ways that a community puts a library to use.
+Het is mijn ervaring in software ontwikkeling, dat bugs meestal geïntroduceerd
+worden op de grenzen tussen applicaties. Unit testen werkt geweldig voor het
+testen van de interacties waar een open-source beheerder van op de hoogte is,
+maar werkt slecht voor het vangen van alle interessante, vaak onverwachte,
+manieren waarop een gemeenschap een bibliotheek gebruikt.
 
-Anyone who has upgraded to a new patch version of a dependency, only to watch their
-application start throwing a steady stream of 500 errors, knows how important
-a readable commit history (and [ideally a well maintained CHANGELOG](http://keepachangelog.com/en/0.3.0/)) is to the ensuing
-forensic process.
+Iedereen die een upgrade heeft uitgevoerd naar een nieuwe patch versie van een
+afhankelijkheid en door de applicatie geconfronteerd werd met een gestage stroom
+van 500 errors, weet hoe belangrijk een leesbare commit-historie (en
+[idealiter een goed onderhouden CHANGELOG](http://keepachangelog.com/en/0.3.0/))
+is voor het daaruitvolgende forensische proces.
 
-The Conventional Commits specification proposes introducing a standardized lightweight
-convention on top of commit messages. This convention dovetails with [SemVer](http://semver.org),
-asking software developers to describe in commit messages, features, fixes, and breaking
-changes that they make.
+De Conventionele Commits specificatie stelt voor om een gestandaardiseerde,
+lichtgewicht conventie te introduceren op commit berichten. Deze conventie
+sluit aan op [SemVer](http://semver.org) en vraagt software software
+ontwikkelaars om features, fixes en breaking changes in commit berichten te
+omschrijven.
 
-By introducing this convention, we create a common language that makes it easier to
-debug issues across project boundaries.
+Met het introduceren van deze conventie, creeëren we een gedeelde taal die het
+makkelijker maakt om issues over projectgrenzen heen te debuggen.
 
-## Conventional Commits Specification
+## Conventionele Commits specificatie
 
-The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+De sleutelwoorden "MOET" ("MUST"), "MOET NIET" ("MUST NOT"), "VEREIST"
+("REQUIRED"), "SHALL" ("ZAL"), "ZAL NIET" ("SHALL NOT"), "SHOULD"
+("ZOU MOETEN"), "SHOULD NOT" ("ZOU NIET MOETEN"), "RECOMMENDED" ("AANBEVOLEN"),
+"MAG" ("MAY") en OPTIONEEL ("OPTIONAL") in dit document dienen geïnterpreteerd
+te worden zoals omschreven in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
-1. Commits MUST be prefixed with a type, which consists of a noun, `feat`, `fix`, etc.,
-   followed by a colon and a space.
-2. The type `feat` MUST be used when a commit adds a new feature to your application
-  or library.
-3. The type `fix` MUST be used when a commit represents a bug fix for your application.
-4. An optional scope MAY be provided after a type. A scope is a phrase describing
-  a section of the codebase enclosed in parenthesis, e.g., `fix(parser):`
-5. A description MUST immediately follow the type/scope prefix.
-  The description is a short description of the code changes, e.g.,
-  _fix: array parsing issue when multiple spaces were contained in string._
+1. Commits MOETEN voorafgegaan worden door een type prefix, welke bestaat uit
+  een zelfstandig naamwoord, bijvoorbeeld `feat` of `fix`, gevolgd door een
+  dubbele punt en een spatie.
+2. Het type `feat` MOET worden gebruikt wanneer een commit een nieuwe feature
+  toevoegt aande applicatie of bibliotheek.
+3. Het type `fix` MOET gebruikt worden wanneer een commit een bug fix betreft
+  voor de applicatie.
+4. Een optionele scope MAG worden toegevoegd na een type. Een scope is een
+  zinsnede die een sectie van de codebase omschrijft en is omsloten door
+  haakjes, bijvoorbeeld `fix(parser):`
+5. Een omschrijving MOET direct volgen op de type/scope prefix.
+  De omschrijving is een korte omschrijving van de codewijzigingen,
+  bijvoorbeeld _fix: array parsing issue when multiple spaces were contained in
+  string._
 6. A longer commit body MAY be provided after the short description, providing additional contextual information about the code changes. The body MUST begin one blank line after the description.
 7. A footer MAY be provided one blank line after the body (or after the description if body is missing).
   The footer SHOULD contain additional issue references about the code changes (such as the issues it fixes, e.g.,`Fixes #13`).
