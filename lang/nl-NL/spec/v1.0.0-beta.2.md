@@ -126,92 +126,137 @@ te worden zoals omschreven in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
   De omschrijving is een korte omschrijving van de codewijzigingen,
   bijvoorbeeld _fix: array parsing issue when multiple spaces were contained in
   string._
-6. A longer commit body MAY be provided after the short description, providing additional contextual information about the code changes. The body MUST begin one blank line after the description.
-7. A footer MAY be provided one blank line after the body (or after the description if body is missing).
-  The footer SHOULD contain additional issue references about the code changes (such as the issues it fixes, e.g.,`Fixes #13`).
-8. Breaking changes MUST be indicated at the very beginning of the footer or body section of a commit. A breaking change MUST consist of the uppercase text `BREAKING CHANGE`, followed by a colon and a space.
-9. A description MUST be provided after the `BREAKING CHANGE: `, describing what
-  has changed about the API, e.g., _BREAKING CHANGE: environment variables now take precedence over config files._
-10. The footer MUST only contain `BREAKING CHANGE`, external links, issue references, and other meta-information.
-11. Types other than `feat` and `fix` MAY be used in your commit messages.
+6. Een langere commit body MAG worden aangeleverd na de korte omschrijving,
+  waarmee aanvullende contextuele informatie over de codewijzigingen wordt
+  verschaft. De body MOET op een lege regel na de omschrijving beginnen.
+7.  Een footer MAG worden aangeleverd een lege regel na de body (of na de
+  omschrijving als er geen body is). The footer ZOU aanvullende issue-
+  verwijzingen MOETEN bevatten over de codewijzigingen (zoals de issues die
+  er mee worden verholpen, bijvoorbeeld "Fixes \#13").
+8. Breaking changes MOETEN aangegeven worden aan het alleerste begin van de
+  footer of de body sectie van een commit. Een breaking change MOET bestaan uit
+  de tekst `BREAKING CHANGE` in hoofdletters, gevolgd door een dubbele punt en
+  een spatie.
+9. Een omschrijving MOET worden gegeven na de `BREAKING CHANGE: ` en
+  omschrijven wat veranderd is aan de API, bijvoorbeeld: _BREAKING CHANGE:
+  environment variables now take precedence over config files._
+10. De footer MOET alleen `BREAKING CHANGE`, externe links, issueverwijzingen
+  en andere meta-informatie bevatten.
+11. Types anders dan `feat` en `fix`  MOGEN worden gebruikt in uw commit-
+  berichten.
 
-## Why Use Conventional Commits
+## Waarom Conventional Commits gebruiken
 
-* Automatically generating CHANGELOGs.
-* Automatically determining a semantic version bump (based on the types of commits landed).
-* Communicating the nature of changes to teammates, the public, and other stakeholders.
-* Triggering build and publish processes.
-* Making it easier for people to contribute to your projects, by allowing them to explore
-  a more structured commit history.
+* Automatisch genereren van CHANGELOGs
+* Automatisch bepalen van een semantic version bump (gebaseerd op de type
+  commits)
+* Communiceren van de aard van de veranderingen naar teamgenoten, het publiek
+  en andere stakeholders.
+* Starten van build en publish processen.
+* Het makkelijker maken voor mensen om bij te dragen aan uw projecten, doordat
+  ze in staat zijn de commithistorie in een meer gestructureerde manier door te
+  nemen.
 
 ## FAQ
 
-### How should I deal with commit messages in the initial development phase?
+### Hoe moet ik omgaan met commitberichten in de initiële ontwikkelfase?
 
-We recommend that you proceed as if you've an already released product. Typically *somebody*, even if its your fellow software developers, is using your software. They'll want to know what's fixed, what breaks etc.
+We raden u om te werken alsof u al een gereleased product heeft. Doorgaans
+gebruikt *iemand*. al zijn het uw collega ontwikkelaars, uw software. Ze zullen
+willen weten wat er verbeterd is, wat niet meer werkt, etc.
 
-### What do I do if the commit conforms to more than one of the commit types?
+### Wat doe ik als de commit van toepassing is op meer dan een van de commit
+types?
 
-Go back and make multiple commits whenever possible. Part of the benefit of Conventional Commits is its ability to drive us to make more organized commits and PRs.
+Ga terug en maak meerdere commits waar mogelijk. Een deel van het nut van
+Conventional Commits is zijn mogelijkheid om ons aan te sporen om  meer
+georganizeerde commits en PRs te maken.
 
-### Doesn’t this discourage rapid development and fast iteration?
+### Ontmoedigt dit niet snel ontwikkelen en snelle iteraties?
 
-It discourages moving fast in a disorganized way. It helps you be able to move fast long term across multiple projects with varied contributors.
+Het ontmoedigt snel handelen op een ongeorganiseerde manier.Het helpt u om op
+de lange termijn snel te handelen over meerdere projecten met verschillende
+bijdragers.
 
-### Might Conventional Commits lead developers to limit the type of commits they make because they'll be thinking in the types provided?
+### Kan Conventional Commits developers er toe leiden om het aantal type commits
+te beperken, omdat ze zullen denken in de aangeboden types?
 
-Conventional Commits encourages us to make more of certain types of commits such as fixes. Other than that, the flexibility of Conventional Commits allows your team to come up with their own types and change those types over time.
+Conventional Commits moedigt ons aan om meer van bepaalde soorten commits, zoals
+fixes, te maken. Daarnaast stelt de flexibiliteit van Conventional Commits
+uw team in staat om met eigen types te komen en die typen in de loop van de tijd
+te veranderen.
 
-### How does this relate to SemVer?
+### Hoe verhoudt zich dit tot SemVer?
 
-`fix` type commits should be translated to `PATCH` releases. `feat` type commits should be translated to `MINOR` releases. Commits with `BREAKING CHANGE` in the commits, regardless of type, should be translated to `MAJOR` releases.
+`fix` type commits zouden vertaald moeten worden naar `PATCH` releases. `feat`
+type commits zouden vertaald moeten worden naar `MINOR` releases. Commits met
+`BREAKING CHANGE` in de commits, ongeacht het type, zouden vertaald moeten
+worden naar `MAJOR` releases.
 
-### How should I version my extensions to the Conventional Commits Specification, e.g. `@jameswomack/conventional-commit-spec`?
+### Hoe zou ik mijn extenties van de Conventional Commits Specification moeten
+versioneren, bijvoorbeeld `@jameswomack/conventional-commit-spec`?
 
-We recommend using SemVer to release your own extensions to this specification (and
-encourage you to make these extensions!)
+We raden aan om SemVer te gebruiken om releases van uw eigen extensie op deze
+specificatie uit te brengen (en we moedigen u aan deze extensies te maken!).
 
-### What do I do if I accidentally use the wrong commit type?
+### Wat doe ik als ik per ongeluk het verkeerde commit type gebruik?
 
-#### When you used a type that's of the spec but not the correct type, e.g. `fix` instead of `feat`
+#### Wanneer u een type heeft gebruikt dat onderdeel is van de specificatie maar niet het correcte type, bijvoorbeeld `fix` in plaats van `feat`
 
-Prior to merging or releasing the mistake, we recommend using `git rebase -i` to edit the commit history. After release, the cleanup will be different according to what tools and processes you use.
+Voordat u de fout merget of releaset, raden we aan om `get rebase -i` te
+gebruiken om de commithistorie te bewerken. Na release zal het opruimen anders
+zijn, afhankelijkheid van de tools en processen die u gebruikt.
 
-#### When you used a type *not* of the spec, e.g. `feet` instead of `feat`
+#### Wanneer u een type heeft gebruikt dat *niet* onderdeel is van de specificatie, bijvoorbeeld `feet` in plaats van `feat`
 
-In a worst case scenario, it's not the end of the world if a commit lands that does not meet the conventional commit specification. It simply means that commit will be missed by tools that are based on the spec.
+In het ergste geval is het niet het einde van de wereld als een commit niet
+voldoet aan de conventional commit specificatie. Het betekent simpelweg dat
+de commit gemist wordt door tools die zijn gebaseerd op de specificatie.
 
-### Do all my contributors need to use the conventional commit specification?
+### Moeten al mijn bijdragers de conventional commits specificatie gebruiken?
 
-No! If you use a squash based workflow on Git lead maintainers can cleanup the commit messages as they're merged—adding no workload to casual committers. A common workflow for this is to have your git system automatically squash commits from a pull request and present a form for the lead maintainer to enter the proper git commit message for the merge.
+Nee! Als u een squash-gebaseerde workflow hanteert op Git, dan kunnen lead
+maintainers de commitberichten opruimen terwijl ze die mergen — zonder extra
+werkdruk voor personen die af en toe een commit leveren. Een veel voorkomende
+workflow hiervoor is om uw git systeem automatisch commits te laten squashen
+uit een pull request en een formulier te presenteren aan de lead maintainer
+waarmee het juiste commitbericht kan worden ingegeven voor de merge.
 
-## About
+## Over de specificatie
 
-The Conventional Commit specification is inspired by, and based heavily on, the [Angular Commit Guidelines](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit).
+De Conventional Commit specificatie is geïnspireerd door, en sterk gebaseerd op,
+de [Angular Commit Guidelines](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit).
 
-The first draft of this specification has been written in collaboration with some of the
-folks contributing to:
+De eerste versie van deze specificatie is geschreven in samenwerking met enkele
+van de personen die bijdragen aan:
 
-* [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog): a
-  set of tools for parsing conventional commit messages from git histories.
-* [unleash](https://github.com/netflix/unleash): a tool for automating the
-  software release and publishing lifecycle.
-* [lerna](https://github.com/lerna/lerna): a tool for managing monorepos, which grew out
-  of the Babel project.
+* [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog):
+  een set van tools voor het parsen van conventional commit berichten uit git
+  histories.
+* [unleash](https://github.com/netflix/unleash): een tool voor het automatiseren
+  van de software release en publicatie lifecycle.
+* [lerna](https://github.com/lerna/lerna): een tool voor het beheren van
+  monorepos, onstaan uit het Babel project.
 
-## Projects Using Conventional Commits
+## Projecten die Conventional Commits gebruiken
 
-* [yargs](https://github.com/yargs/yargs): everyone's favorite pirate themed command line argument parser.
-* [parse-commit-message](https://github.com/olstenlarck/parse-commit-message): Spec compliant parsing utility to get object like `{ header: { type, scope, subject }, body, footer }` from given commit message string.
-* [istanbuljs](https://github.com/istanbuljs/istanbuljs): a collection of open-source tools
-  and libraries for adding test coverage to your JavaScript tests.
-* [standard-version](https://github.com/conventional-changelog/standard-version): Automatic versioning and CHANGELOG management, using GitHub's new squash button and the recommended Conventional Commits workflow.
-* [uPortal-home](https://github.com/UW-Madison-DoIT/angularjs-portal) and [uPortal-application-framework](https://github.com/UW-Madison-DoIT/uw-frame): Optional supplemental user interface enhancing [Apereo uPortal](https://www.apereo.org/projects/uportal).
+* [yargs](https://github.com/yargs/yargs): iedereens favoriete piratenthema
+  command line argument parser.
+* [parse-commit-message](https://github.com/olstenlarck/parse-commit-message):
+  Spec compliant parsing utility om een object zoals `{ header: { type, scope, subject }, body, footer }` uit de gegeven commitbericht string te krijgen.
+* [istanbuljs](https://github.com/istanbuljs/istanbuljs): een collectie van
+  open source tools en bibliotheken voor het toevoegen van test coverage aan uw
+  JavaScript tests.
+* [standard-version](https://github.com/conventional-changelog/standard-version):
+  Automatisch versioneren en CHANGELOG-beheer, maakt gebruik van GitHubs nieuwe
+  squash-knop en de aanbevolen Conventional Commits workflow
+* [uPortal-home](https://github.com/UW-Madison-DoIT/angularjs-portal) en [uPortal-application-framework](https://github.com/UW-Madison-DoIT/uw-frame):
+  Optionele aanvullende user interface voor het verbeteren van [Apereo uPortal](https://www.apereo.org/projects/uportal).
 
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
-_want your project on this list?_ [send a pull request](https://github.com/conventional-changelog/conventionalcommits.org/pulls).
+_Wilt u uw project op deze lijst?_ [Stuur een pull request](https://github.com/conventional-changelog/conventionalcommits.org/pulls).
 
-## License
+## Licentie
 
 [Creative Commons - CC BY 3.0](http://creativecommons.org/licenses/by/3.0/)
